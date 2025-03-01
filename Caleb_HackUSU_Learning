@@ -1,0 +1,131 @@
+            #FIGURE OUT DATA VIZUALIZATION WITH PYTHON
+
+'''
+7:00PM -- Research: Discovered MatPlot Library can be used to make vizzes in Python
+7:15PM -- Attempted to import MatPlot Library into VS Code to start learning
+'''
+#import matplotlib.pyplot as plt        #failed
+'''
+    #encountered an error: No module names 'matplotlib'
+        #Went into Bash (Born Again Shell) -- In order to interact with the operating system -- in order to download the
+        #matplot library somewhere so that we could import it to the instance (global instsall of matlab files)
+    #Tried sudo in the terminal (sudo yum update -y) (Sudo in order to work as administrator)
+    #Then we tried to run it without yum (sudo update -y) but it failed to recognize update as a command
+    #After some digging found that failed to specify what we think is a linux distribution, linux below:
+        # sudo apt update -y
+            # This ran
+            # Checks for updates
+        #sudo aot upgrade
+            #Ran
+            #Applies any uodates that were found
+# tried in python: pip install matplotlib
+#go back to bash to install pip to then install matplotlib
+    # found out that this was externally managesd and we didnt need to install pip cuz permissions
+    #Go back to bash]
+        #sudo apt install python3-matplotlib
+            #installed the library
+#tried it again
+'''
+#import matplotlib.pyplot as plt     #IT WORKED!!! (After wayy too long haha)
+
+'''
+learned that Matplotlib can connect to Pandas directly....
+plt.bar [column] [importance]
+'''
+'''
+8:00PM -- testing the libary with a GPT example: Next 15 lines or so:
+'''
+'''
+# Data for the plot
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 1, 3, 5]
+
+# Create the plot
+plt.plot(x, y)
+
+# Add labels and title
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.title("Simple Line Plot")
+
+# Show the plot
+plt.show(block=True)
+
+#make sure it saved...
+plt.savefig("plot.png")
+'''
+
+'''
+Okay, so minor issue: the code runs but nothing is output ot the terminal..
+    Added block = true
+        Still don't display....
+    Added plt.savefig("plot.png")
+        Running but still no display...
+'''
+
+'''
+learned that pandas can process csvs
+'''
+
+#Spent a lot of time trying to figure out the problem and the data
+#Called my rocket scientist Dad to figure out what all of the 
+
+#9:45PM Planning Vizzes and stuff
+'''
+Got to the correct python versino to work with pandas and then read in a csv file using pandas (Nolan)
+'''
+
+#10:00PM -- Using Geeks for Geeks to Learn how to do 3d graphs in Python
+'''
+import numpy as np
+ 
+ 
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+'''
+'''
+# importing mplot3d toolkits, numpy and matplotlib
+from mpl_toolkits import mplot3d
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+
+# syntax for 3-D projection
+ax = plt.axes(projection ='3d')
+
+# defining all 3 axis
+z = np.linspace(0, 1, 100)
+x = z * np.sin(25 * z)
+y = z * np.cos(25 * z)
+
+# plotting
+ax.plot3D(x, y, z, 'green')
+ax.set_title('3D line plot geeks for geeks')
+plt.show(block=True)
+
+This code didnt end up running, so I did my best to troubleshoot it. plt.show takes booleen arguments, 
+so I tried to put in true and false. I also tried to put in block=true and block=false. It didnt run so I
+turned to ChatGPT. The code it gave is below.
+'''
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Create a figure
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Define the 3D curve
+z = np.linspace(0, 1, 100)
+x = z * np.sin(25 * z)
+y = z * np.cos(25 * z)
+
+# Plot the 3D line
+ax.plot3D(x, y, z, color='green')
+ax.set_title('3D Line Plot')
+
+# Display the plot
+plt.show()
+
+
